@@ -1,6 +1,19 @@
 import React from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = ({ canSave, handleSave, handleCustomNameChange }) => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNew = () => {
+    // Clear the local storage data
+    localStorage.removeItem("code");
+
+    navigate(`/new`);
+    if(location.pathname === '/new')
+      navigate(0);
+  };
 
   return (
     <header>
@@ -22,10 +35,7 @@ const Header = ({ canSave, handleSave, handleCustomNameChange }) => {
             </button>
           </>
         )}
-        <a href="/new" className="button">
-          New
-        </a>
-        <button className="button">Button 3</button>
+        <button className="button" type="button" onClick={handleNew}>New</button>
       </div>
     </header>
   );
