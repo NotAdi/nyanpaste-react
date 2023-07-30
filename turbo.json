@@ -1,0 +1,9 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "dev": {
+            "cache": true,
+            "env": ["NODE_ENV=development", "MONGO_URI"]
+        }
+    }
+}
