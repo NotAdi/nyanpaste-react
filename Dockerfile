@@ -23,6 +23,6 @@ COPY --from=builder --chown=node:node /home/node/package*.json ./
 COPY --from=builder --chown=node:node /home/node/node_modules/ ./node_modules/
 COPY --from=builder --chown=node:node /home/node/dist/ ./dist/
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["npm", "start"]
