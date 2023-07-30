@@ -1,6 +1,10 @@
 {
     "$schema": "https://turbo.build/schema.json",
     "pipeline": {
+        "build": {
+            "outputs": ["dist/**"],
+            "env": ["MONGO_URI", "JWT_SECRET", "JWT_EXPIRE"]
+        },
         "dev": {
             "cache": true,
             "env": ["MONGO_URI", "JWT_SECRET", "JWT_EXPIRE"]
