@@ -5,5 +5,8 @@
             "cache": true,
             "env": ["MONGO_URI", "JWT_SECRET", "JWT_EXPIRE"]
         }
-    }
+    },
+    "globalEnv": [
+        "MONGO_URI", "JWT_SECRET", "JWT_EXPIRE"
+      ]
 }
