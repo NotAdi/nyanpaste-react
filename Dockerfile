@@ -1,11 +1,11 @@
 FROM node:18-alpine as builder
 
-ENV NODE_ENV production
+ENV NODE_ENV build
 
 WORKDIR /home/node
 
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 COPY --chown=node:node . .
 RUN npm run build \
