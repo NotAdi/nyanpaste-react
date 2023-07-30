@@ -3,7 +3,7 @@
     "pipeline": {
         "dev": {
             "cache": true,
-            "env": ["NODE_ENV=development", "MONGO_URI"]
+            "env": ["MONGO_URI", "JWT_SECRET", "JWT_EXPIRE"]
         }
     }
 }
