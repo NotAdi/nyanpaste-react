@@ -1,0 +1,14 @@
+// vercel.json
+{
+  "builds": [
+    {
+      "src": "apps/client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "outputDirectory": "apps/client/build" }
+    },
+    {
+      "src": "apps/server/package.json",
+      "use": "@vercel/node"
+    }
+  ]
+}
