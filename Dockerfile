@@ -4,12 +4,9 @@ ENV NODE_ENV build
 
 WORKDIR /home/node
 
-COPY package*.json ./
-RUN npm i
+COPY client/ ./client/
 
-COPY --chown=node:node . .
-RUN npm run build \
-    && npm prune --production
+RUN cd client && npm install && npm run build
 
 # ---
 
@@ -19,10 +16,15 @@ ENV NODE_ENV production
 
 WORKDIR /home/node
 
-COPY --from=builder --chown=node:node /home/node/package*.json ./
-COPY --from=builder --chown=node:node /home/node/node_modules/ ./node_modules/
-COPY --from=builder --chown=node:node /home/node/dist/ ./dist/
+COPY --from=builder --chown=node:node /home/node/client/dist ./client/dist
+COPY --chown=node:node package*.json ./server/
 
-EXPOSE 5000
+RUN cd server && npm install --production
 
-CMD ["npm", "start"]
+COPY --chown=node:node server/ ./server/
+
+RUN cd server && ls -la
+
+EXPOSE 5000/tcp
+
+CMD ["node", "server/server.js"]

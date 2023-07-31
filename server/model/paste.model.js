@@ -9,7 +9,13 @@ const pasteSchema = new Schema(
         },
         title: {
             type: String,
-            unique: true,
+            required: false,
+            default: null,
+            sparse: true,
+            index: {
+                unique: true,
+                partialFilterExpression: { title: { $type: 'string' } },
+            },
         },
         userId: {
             type: Schema.Types.ObjectId,
@@ -18,7 +24,7 @@ const pasteSchema = new Schema(
     },
     { timestamps: true }
 );
-
+console.log('user', User.name);
 let Paste;
 try {
     Paste = mongoose.model('paste');

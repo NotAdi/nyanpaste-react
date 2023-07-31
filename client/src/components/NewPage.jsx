@@ -30,16 +30,23 @@ const NewPage = () => {
     const handleSave = async e => {
         e.preventDefault();
         try {
-            const res = await axios.post('/api/paste', {
-                // changed route from /save to /api/paste
-                content: value, // changed this from value to content
-                title: customName, // changed this from customNameInput to title
-                // title is compulsory, so we need to pass it
-                // if you think its not compulsory, then tell me will change it in backends
-                // add toast msg for errors
+            const token = localStorage.getItem('authToken');
+            let res;
+            if(token){
+                res = await axios.post('/api/paste', {
+                content: value,
+                title: customName, 
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
             });
-            const id = res.data._id;
-            // i am sticking to only id because what if title is same for two pastes
+            }   else{
+                res = await axios.post('/api/paste', {
+                content: value,
+                title: customName,
+            });
+        }
+            const id = customName? customName : res.data._id;
+
             navigate(`/${id}`);
         } catch (e) {
             console.log('Error saving: ', e);

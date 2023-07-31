@@ -32,10 +32,11 @@ const Header = ({
     // Clear the authentication token from local storage
     localStorage.removeItem('authToken');
 
-    await axios.post(`/logout`);
+    // await axios.post(`/logout`);
     setAuthenticated(false);
     // Redirect the user to the home page or any other public route
     navigate(`/`);
+    // navigate(0);
     }catch(error){
       console.log(error);
 

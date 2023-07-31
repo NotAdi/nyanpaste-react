@@ -10,7 +10,7 @@ const db = require('./configs/db');
 const { authRouter, pasteRouter } = require('./routes');
 const errorHandler = require('./middleware/errorHandler.middleware');
 
-console.log('Starting server...');
+console.log('Starting server as ' + process.env.NODE_ENV + ' mode');
 
 const app = express();
 
@@ -26,19 +26,17 @@ app.use('/api/auth', authRouter);
 app.use('/api/paste', pasteRouter);
 
 app.use(errorHandler);
-
+console.log(path.join(__dirname, '../client/dist'));
 
 // Serve static files if in production mode
-if (process.env.NODE_ENV === 'production') {
-    // Set static folder
-    app.use(express.static(path.join(__dirname, '../../client/dist')));
+// if (process.env.NODE_ENV === 'production') {
+// Set static folder
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
-    app.get('*', (req, res) => {
-        res.sendFile(
-            path.resolve(__dirname, '../../client', 'dist', 'index.html')
-        );
-    });
-}
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
+});
+// }
 
 const PORT = process.env.PORT || 5000;
 

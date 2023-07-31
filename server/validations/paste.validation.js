@@ -4,7 +4,7 @@ const { objectId } = require('./custom.validation');
 const createNewPaste = {
     body: Joi.object().keys({
         content: Joi.string().required(),
-        title: Joi.string().required(),
+        title: Joi.string().alphanum().allow(''),
     }),
 };
 

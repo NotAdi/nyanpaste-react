@@ -12,6 +12,7 @@ const createNewPaste = async (req, res) => {
     }
     const data = jwt.verify(JTW, process.env.JWT_SECRET);
     console.log(data);
+    console.log("inside paste service");
     const newPaste = await Paste.create({
         ...req.body,
         userId: data.id,
