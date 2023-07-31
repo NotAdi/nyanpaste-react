@@ -14,11 +14,15 @@ To run nyanpaste locally on your machine, you need to have **Node.js** and **npm
 
 1. Clone the repository.
 
-``` git clone https://github.com/NotAdi/nyanpaste-react.git ```
+```
+git clone https://github.com/NotAdi/nyanpaste-react.git
+ ```
 
 2. Install the dependencies.
 
-``` npm install ```
+``` 
+npm install
+ ```
 
 3. Create a .env file in the root directory and add the following environment variables.
 
@@ -30,11 +34,15 @@ JWT_EXPIRE= 7d
 
 4. Run the application.
 
-``` npm run dev ```
+``` 
+npm run dev
+ ```
 
 5. Open the application in your browser.
 
-``` http://localhost:3000 ```
+```
+http://localhost:3000
+ ```
 
 
 You can also visit the deployed application [here](https://nyanpaste.up.railway.app/) or [here](https://nyanpaste1-adityam0338.b4a.run/) .
