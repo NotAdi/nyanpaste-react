@@ -7,7 +7,7 @@ NyanPaste is a simple web application built using **Express** and **React** that
 - User registration and login.
 - Store code snippets associated with the user account.
 - Publicly accessible code snippets.
-- A user dashboard to display all snippets by a user [TO DO]
+- A user dashboard to display all snippets by a user
 
 ## Getting  Started
 To run nyanpaste locally on your machine, you need to have **Node.js** and **npm** installed. You can download them from [here](https://nodejs.org/en/download/). Once you have them installed, follow the steps below to run the application.
