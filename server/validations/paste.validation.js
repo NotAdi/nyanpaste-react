@@ -14,16 +14,16 @@ const getPasteById = {
     }),
 };
 
-const getAllPastes = {
-    query: Joi.object().keys({
-        title: Joi.string().default(''),
-        limit: Joi.number().integer().default(10),
-        page: Joi.number().integer().default(1),
-    }),
-};
+// const getAllPastes = {
+//     query: Joi.object().keys({
+//         title: Joi.string().default(''),
+//         limit: Joi.number().integer().default(10),
+//         page: Joi.number().integer().default(1),
+//     }),
+// };
 
 module.exports = {
     createNewPaste,
     getPasteById,
-    getAllPastes,
+    // getAllPastes,
 };

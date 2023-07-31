@@ -31,6 +31,7 @@ const NewPage = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('authToken');
+            console.log(token);
             let res;
             if(token){
                 res = await axios.post('/api/paste', {

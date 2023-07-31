@@ -36,7 +36,7 @@ textarea {
     padding: 0;
     margin-left: 1rem;
     color: #f8f8f2;
-    min-height: calc(100vh - 2.1rem);
+    min-height: calc(100vh - 6rem);
     border: none;
     outline: none;
     font-size: 16px;

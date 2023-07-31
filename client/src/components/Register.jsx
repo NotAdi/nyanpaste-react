@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "./AuthContext";
-import "../AuthStyles.css";
+import "../css/AuthStyles.css";
 
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");

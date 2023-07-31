@@ -7,6 +7,14 @@ const router = require('express').Router();
 require('../configs/passport');
 
 router.get(
+    "/dashboard",
+    // pasteController.defPaste
+
+    // authMiddleware,
+    pasteController.getAllPastes
+);
+
+router.get(
     '/:id',
     validate(pasteValidation.getPasteById),
     pasteController.getPasteById
@@ -22,5 +30,7 @@ router.get(
     // authMiddleware,
     pasteController.defPaste
 );
+
+
 
 module.exports = router;

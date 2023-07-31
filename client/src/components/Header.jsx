@@ -54,12 +54,20 @@ const Header = ({
       <div className="buttons">
         {authenticated ? (
           // If authenticated, show a logout button
+          <>
           <button
             className="button"
             onClick={handleLogout}
           >
             Logout
           </button>
+          <Link
+            to="/dashboard"
+            className="button"
+          >
+            Dashboard
+          </Link>
+        </>
         ) : (
           // If not authenticated, show login and register buttons
           <>

@@ -10,12 +10,14 @@ const getPasteById = asyncHandler(async (req, res) => {
 });
 
 const getAllPastes = asyncHandler(async (req, res) => {
+    // console.log("inside paste controller");
     return res
         .status(200)
-        .json(await pasteService.getAllPastes(req.user.id, req.query));
+        .json(await pasteService.getAllPastes(req, res));
 });
 
 const defPaste= asyncHandler(async (req, res) => {
+    // console.log("inside paste controller");
     return res
         .status(200)
         .json(await pasteService.getdefPaste(req, res));
